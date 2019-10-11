@@ -37,43 +37,33 @@ How to build and run this project
     [info] sbt server started at local:///Users/rsha/.sbt/1.0/server/3ac703e7e505b47dc7e0/sock
     sbt:Artist>
 
-- Run app : type console, and this will bring a session that can be used to run the app. Your output
-  should be like below
+- Run app :
 
-  sbt:Artist> console
-  [info] Starting scala interpreter...
-  Welcome to Scala 2.12.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_151).
-  Type in expressions for evaluation. Or try :help.
+  sbt:Artist> run "/Users/rsha/practice/Artist/src/main/resources/Artist_lists_small.txt" "/Users/rsha/practice/Artist/src/main/resources/Artist_more_than_50.csv"
 
-  scala> import arena._
-  import arena._
 
   >> For all artist with min count 50
-    scala> ArtistFileService.apply("/Users/rsha/practice/Artist/src/main/resources/Artist_lists_small.txt","/Users/rsha/practice/Artist/src/main/resources/Artist_more_than_50.csv")
-    Found 19 pairs in :/Users/rsha/practice/Artist/src/main/resources/Artist_lists_small.txt having min count 50
+    sbt:Artist> run "/Users/rsha/practice/Artist/src/main/resources/Artist_lists_small.txt" "/Users/rsha/practice/Artist/src/main/resources/Artist_more_than_50.csv"
+    [info] running arena.ArtistFileService /Users/rsha/practice/Artist/src/main/resources/Artist_lists_small.txt /Users/rsha/practice/Artist/src/main/resources/Artist_more_than_50.csv
+    Found 101 pairs in :/Users/rsha/practice/Artist/src/main/resources/Artist_lists_small.txt having min count 50
     Done writing to output file
-
-    scala>
-
-  >> For all artist with min count 10
-  scala> ArtistFileService.apply("/Users/rsha/practice/Artist/src/main/resources/Artist_lists_small.txt", "/Users/rsha/practice/Artist/src/main/resources/Artist_more_than_10.csv", 10)
-  Found 3293 pairs in :/Users/rsha/practice/Artist/src/main/resources/Artist_lists_small.txt having min count 10
-  Done writing to output file
-
+    [success] Total time: 2 s, completed Oct 11, 2019 5:57:42 PM
+    sbt:Artist>
 
 
 - How to run test : press ctrl+D and it should bring you back to sbt:Artist>, then type test at that prompt and you should see something like below.
 
     sbt:Artist> test
-    [info] Compiling 1 Scala source to /Users/rsha/practice/Artist/target/scala-2.12/classes ...
     [info] ArtistListTest:
     [info] ArtistList
     [info] - should be able to read a get data from a simpleList
+    [info] ArtistList
+    [info] - should be order insensitive
     [info] - should be able to handle a medium input
-    [info] Run completed in 286 milliseconds.
-    [info] Total number of tests run: 2
+    [info] Run completed in 395 milliseconds.
+    [info] Total number of tests run: 3
     [info] Suites: completed 1, aborted 0
-    [info] Tests: succeeded 2, failed 0, canceled 0, ignored 0, pending 0
+    [info] Tests: succeeded 3, failed 0, canceled 0, ignored 0, pending 0
     [info] All tests passed.
-    [success] Total time: 2 s, completed Oct 11, 2019 1:53:18 PM
+    [success] Total time: 2 s, completed Oct 11, 2019 5:58:15 PM
     sbt:Artist>
