@@ -17,6 +17,25 @@ class ArtistListTest extends FlatSpec with Matchers {
   }
 
 
+  "ArtistList" should "be order insensitive " in {
+
+    val testLine = "Radiohead,Pulp,Morrissey,Delays,Stereophonics,Blur,Suede,Sleeper,The La's,Super Furry Animals,Iggy Pop\n" +
+      "Band of Horses,Smashing Pumpkins,The Velvet Underground,Radiohead,The Decemberists,Morrissey,Television\n"+
+      "Morrissey,Radiohead\n"
+
+
+    val inputLinesIter = testLine.split("\n").iterator
+
+    val foundArtists = ArtistPairsCounter.pairsWithSize(inputLinesIter, 2)
+
+    foundArtists.size should be (1)
+    foundArtists.keys.head should be (ArtistPair("Radiohead", "Morrissey"))
+    foundArtists.values.head should be (3)
+
+  }
+
+
+
   it should "be able to handle a medium input" in {
 
 
