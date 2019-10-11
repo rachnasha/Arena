@@ -1,0 +1,8 @@
+.DS_Store
+*.swp
+*.swo
+target/
+.idea
+.idea_modules
+project/project/
+project/target/
